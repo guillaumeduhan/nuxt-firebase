@@ -55,8 +55,7 @@ export default {
       "@nuxtjs/firebase",
       {
         config: {
-          // To remove
-
+          // Add your config firebase's data here
         },
         services: {
           auth: true, // Just as example. Can be any other service.
