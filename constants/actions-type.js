@@ -1,0 +1,6 @@
+export const CREATE_NOTIFICATION = 'CREATE_NOTIFICATION'
+export const CREATE_NEW_USER = 'CREATE_NEW_USER'
+export const CREATE_USER = 'CREATE_USER'
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
