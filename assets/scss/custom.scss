@@ -5,8 +5,13 @@ $primary:  #158876;
 $secondary: black;
 $danger: #ff344f;
 $success: #1ada90;
+$facebook: #3B5998 !default;
 $spacers: (
+  4: 4px,
+  8: 8px,
   12: 12px,
+  16: 16px,
+  32: 32px,
 );
 //then bootstrap & bootstrap-vue should be added after
 //so that they inherit the custom SCSS variables
@@ -14,3 +19,10 @@ $spacers: (
 @import "bootstrap-vue/src/index.scss";
 
 //all other custom scss files or css should be added here
+
+.bg-facebook {
+  background-color: $facebook;
+  @extend .w-100;
+  @extend .border-0;
+  @extend .text-white;
+}

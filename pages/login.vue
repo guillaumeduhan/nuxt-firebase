@@ -5,6 +5,8 @@
       <Header />
     </div>
     <div v-else class="container pt-5" style="max-width: 300px;">
+      <b-button class="bg-facebook" variant="facebook">Login with Facebook</b-button>
+      <hr/>
       <Login v-if="status === 'login'" />
       <Register v-if="status === 'register'" />
       <Reset v-if="status === 'reset'" @backToLogin="status = 'login'" />
