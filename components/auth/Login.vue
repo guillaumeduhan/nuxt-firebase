@@ -61,7 +61,7 @@ export default {
             this.isLoading = false
           })
         } catch (err) {
-          console.log(err)
+          this.displayNotification('Cannot login. Please try again.', 'danger')
         }
       }
     },
