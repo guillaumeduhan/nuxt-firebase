@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    hello
+    <div class="container my-5">
+      <h2 class="text-capitalize">{{ $nuxt.$route.name }}</h2>
+      <Nuxt />
+    </div>
   </div>
 </template>
 
