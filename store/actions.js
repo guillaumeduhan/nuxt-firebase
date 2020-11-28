@@ -4,9 +4,10 @@ import 'firebase/auth'
 import {
   CREATE_NOTIFICATION,
   CREATE_USER,
-  SET_CURRENT_USER,
   LOGIN,
-  LOGOUT
+  LOGOUT,
+  RESET_PASSWORD,
+  SET_CURRENT_USER
 } from "../constants/actions-type.js"
 import {
   SET_NOTIFICATION,
@@ -43,7 +44,7 @@ export default {
         })
       })
   },
-  [LOGIN]: ({ commit }, payload) => {
+  [LOGIN]: ({ commit, dispatch }, payload) => {
     return firebase
       .auth()
       .signInWithEmailAndPassword(payload.email, payload.password)
@@ -55,14 +56,27 @@ export default {
           emailVerified: user.emailVerified
         })
       })
+      .catch((err) => {
+        dispatch(CREATE_NOTIFICATION, {
+          message: err.message,
+          type: 'danger'
+        })
+      })
   },
   [LOGOUT]: ({ commit }) => {
-    firebase
+    return firebase
       .auth()
       .signOut()
-      .then(() =>
+      .then(() => {
         commit(SET_USER)
-      )
+      })
+  },
+  [RESET_PASSWORD]: (__, email) => {
+    console.log(email)
+    console.log(typeof email)
+    return firebase
+      .auth()
+      .sendPasswordResetEmail(email)
   },
   [SET_CURRENT_USER]: ({ commit }) => {
     let user = firebase.auth().currentUser ? firebase.auth().currentUser : undefined
