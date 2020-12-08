@@ -1,13 +1,10 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 import {
   CREATE_NEW_USER,
   CREATE_NOTIFICATION
 } from "../../constants/actions-type.js"
-import {
-  SET_USER,
-} from "../../constants/mutations-type.js"
 
 const collection = 'users'
 
@@ -23,7 +20,7 @@ export default {
           message: 'Account created',
           type: 'success'
         }, { root: true })
-        commit(SET_USER, user)
+        commit('SET_USER', user)
       })
   },
 }
